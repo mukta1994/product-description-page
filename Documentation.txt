@@ -19,23 +19,32 @@ To make all services run locally and in a single command add the below scripts o
   },
 
 Run commands:
+
 npm run build
 npm run start
+
 This runs all our services concurrently.
 Product-service runs on  “http://localhost:5001/“
 meta-service runs on  “http://localhost:5003/“
 ugc-service runs on  “http://localhost:5002/“
-GraphQL server runs on “http://localhost:5004/“
+GraphQL server runs on “http://localhost:5004/graghql“
+react app runs on "http://localhost:3000"
 
-Note: if you running application using docker then scripts object should be replaced
+Note: if you running application using docker then scripts object should be replaced with
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build,
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
 
 
-———————————————————————————————————
-In this project 4 services are created
+————————————————————————————————————————————————————————————————————————————————————————————
+In this project 4 microservices are created using node js(express framework)
 
-To test Apis with use api key:-    headers :{ Authorization:"Bearer 123456789"}
+To test APIs, use this api key:-  headers :{ Authorization:"Bearer 123456789"}
 
-————————————————————————————————
+————————————————————————————————————————————————————————————————————————————————————————————
 Product service: It has an authentication using API key
 API’s:
 
@@ -46,14 +55,15 @@ API to get the product variant using product id and variant id
 http://localhost:5001/product/:productid/:variantid/:title
 
 
-————————————————————————————————————
+————————————————————————————————————-------------------------------------------------------
 User Generated Content service: It has an authentication using API key
 Apis:
 
 Api to get ugc using product id (ex productid=1)
 http://localhost:5002/ugc/:productid
 
-——————————————————————————————————
+
+—————————————————————————————————————————————————————————————————————————————————————————————
 User Metadata service: It has an authentication using API key
 Apis:
 
@@ -63,7 +73,8 @@ http://localhost:5003/metadatas
 Api to get metadata of specific product id(ex productid=1)
 http://localhost:5003/metadata/:productid
 
-———————————————————————————————————
+
+———————————————————————————————————————————————————————————————————————————————————————————————
 Pdp service: Acts as an api gateway(BFF). GraphQL is used.
 
 Locally runs on 
@@ -85,11 +96,11 @@ metadata(pid: Int): Metadata
 ugc(id: Int): UgcContent
 	—>to get ugc of specific product by using productid
 
-———————————————————————————————————
+————————————————————————————————————————————————————————————————————————————————————————————————————
 
-In Front end react is used with functional components approach and GraphQL is used as BFF
+In Front end react is used with functional components approach and GraphQL with appollo server is used as BFF
 
-—————————————————————————————————
+—————————————————————————————————————————————————————————————————————————————————————————————————————
 
 Improvements:
 Front-end :We can improve design slightly. Kept it simple for now. 
