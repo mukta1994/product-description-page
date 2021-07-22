@@ -39,12 +39,11 @@ const getMetadatas = async() => {
 //get metadata by product id
 const getMetadata = async(args) => {
   try{
-    console.log(authtoken.token)
     const res = await fetch(`${MetaService.host}/metadata/${args.pid}`,authtoken.token)
     const metadata = res.json()
     return metadata
   }catch(err){
-    throw new Error("metadata crashed")
+    throw new Error("Something went wrong")
   }
  
 }

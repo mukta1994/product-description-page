@@ -24,10 +24,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build ",
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd ../microservices && npm install )",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "concurrently \"react-scripts start\"  \"cd ../microservices && npm run start:product\" \"cd ../microservices && npm run start:pdp\" \"cd ../microservices && npm run start:ugc\" \"cd ../microservices && npm run start:meta\""
   },
   "eslintConfig": {
     "extends": [

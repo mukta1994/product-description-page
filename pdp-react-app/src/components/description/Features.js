@@ -21,7 +21,6 @@ const Features = (props) => {
     const onChangingSize=(item)=>{
         setselectedSize(item.size)
         setquantity(item.quantity)
-        console.log(item)
     }
 
     return (
