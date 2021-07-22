@@ -1,0 +1,53 @@
+version: "3"
+
+services: 
+  product-service:
+    build: "./microservices/product-service"
+    environment:
+      PORT: 5001
+    ports:
+      - 5001:5001
+    volumes: 
+      - ./microservices/product-service:/opt/pp
+
+  meta-service:
+    build: "./microservices/meta-service"
+    environment:
+      PORT: 5003
+    ports:
+      - 5003:5003
+    volumes: 
+      - ./microservices/meta-service:/opt/pp
+
+  user-content-service:
+    build: "./microservices/user-content-service"
+    environment:
+      PORT: 5002
+    ports:
+      - 5002:5002
+    volumes: 
+      - ./microservices/user-content-service:/opt/pp
+
+  pdp-service:
+    build: "./microservices/pdp-service"
+    environment:
+      PORT: 5004
+      PRODUCT_HOST: http://product-service:5001
+      META_HOST: http://meta-service:5003
+      UGC_HOST: http://user-content-service:5002
+    ports:
+      - 5004:5004
+    volumes: 
+      - ./microservices/pdp-service:/opt/pp
+  
+  react-app:
+    build: "./pdp-react-app"
+    environment:
+      PORT: 3000
+    ports:
+      - 3000:3000
+    volumes: 
+      - ./pdp-react-app:/opt/pp
+
+
+  
