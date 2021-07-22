@@ -1,12 +1,6 @@
 'use strict';
 
-const metadata = [{
-    pid:1,
-    page_title: "Adidas shoes",
-    description:"adidas sports shoes for men help you perform your best and are designed to meet the demands of each unique sport.",
-    keywords: "Sports Shoes",
-  }]
-
+const { metadata} = require('./data');
 
 var controllers = {
   getMetadatas: async(req,res,next) => {
@@ -21,8 +15,12 @@ var controllers = {
         var err = new Error("Something went wrong");
         next(err)
       }
-     return await res.json(metadata.find(p=> p.pid==req.params.productid));
-     // await res.json(content) req.params.productid
+      const metaDatabyId = metadata.find(p=> p.pid==req.params.productid)
+      if(!metaDatabyId){
+        var err = new Error("No metadata found for the specified product id");
+        next(err)
+      }
+     return await res.json(metaDatabyId);
   }
   
 };

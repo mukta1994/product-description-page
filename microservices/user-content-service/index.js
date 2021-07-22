@@ -1,17 +1,32 @@
 
 const express = require('express')
 const helmet = require("helmet");
-const apiKeyAuth = require('api-key-auth');
+var passport = require('passport');
+var Strategy = require('passport-http-bearer').Strategy;
+
+var db = require('./src/db');
 
 const app = express();
 app.use(helmet());
 
 const port = process.env.PORT || 5002
 
-var routes = require('./api/routes');
+passport.use(new Strategy(
+  function(token, cb) {
+    db.users.findByToken(token, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+module.exports = passport.authenticate('bearer', { session: false });
+
+var routes = require('./src/api/routes');
 
 routes(app);
 
+//middleware to handle errors
 app.use((error, req, res, next) => {
     res.status(error.status || 500).send({
       error: {

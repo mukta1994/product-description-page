@@ -43,9 +43,10 @@ const Meta = (props) => {
   const [loadeddata,setLoadedData] = useState({metadata:{page_title:"Adidas shoes new",keywords:"sports",description:"Best suits while playing and running"}})
 
   useEffect(() => {
-    if(data)
-    setLoadedData(data)
-  }, [])
+    if(data){
+      setLoadedData(data)
+    }
+  }, [data])
   
  
     return <Helmet>

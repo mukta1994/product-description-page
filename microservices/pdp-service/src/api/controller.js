@@ -1,16 +1,16 @@
 const fetch = require('node-fetch');
-const {ProductService,UgcService,MetaService} = require('../../config');
+const {ProductService,UgcService,MetaService,authtoken} = require('../../config');
 
 
 const getProduct = async() => {
-  const res = await fetch(`${ProductService.host}/product`)
+  const res = await fetch(`${ProductService.host}/product`,authtoken.token)
   const json = res.json();
   return json;
 }
 
 //get variant info and which can be used when fetching all product variant data
 const getProductVariant = async(args) => {
-  const res = await fetch(`${ProductService.host}/product/${args.id}/${args.variantid}/${args.title}`)
+  const res = await fetch(`${ProductService.host}/product/${args.id}/${args.variantid}/${args.title}`,authtoken.token)
   const json = res.json();
   return json;
 } 
@@ -31,21 +31,27 @@ const getVariant = async(args) => {
 
 //get all metadatas 
 const getMetadatas = async() => {
-  const res = await fetch(`${MetaService.host}/metadatas`)
+  const res = await fetch(`${MetaService.host}/metadatas`,authtoken.token)
   const data = res.json()
   return data
 }
 
 //get metadata by product id
 const getMetadata = async(args) => {
-  const res = await fetch(`${MetaService.host}/metadata/${args.pid}`)
-  const metadata = res.json()
-  return metadata
+  try{
+    console.log(authtoken.token)
+    const res = await fetch(`${MetaService.host}/metadata/${args.pid}`,authtoken.token)
+    const metadata = res.json()
+    return metadata
+  }catch(err){
+    throw new Error("metadata crashed")
+  }
+ 
 }
 
 //get ugc by product id
 const getUgc = async(args) => {
-  const res = await fetch(`${UgcService.host}/ugc/${args.id}`)
+  const res = await fetch(`${UgcService.host}/ugc/${args.id}`,authtoken.token)
   if(!res){
     var err = new Error("Something went wrong");
     next(err)
