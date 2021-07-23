@@ -14,7 +14,7 @@ const features = {
   }, {
     color: "Green",
     description_title: "ULTRA-COMFORTABLE SHOES FOR GREAT VIBES.",
-    description: `The maverick approach to fashion defined the 90s. Holy houses? Kick it. Grow them. Create new palaces. The adidas OZWEEGO shoe used to do that and this modern version just carries on with it full of energy. Striking midsole lines pay tribute to the icon. The luxurious multi-material upper rests on soft cushioning to keep you moving comfortably all day long.`,
+    description: `Holy houses? Kick it. Grow them. Create new palaces. The adidas OZWEEGO shoe used to do that and this modern version just carries on with it full of energy. Striking midsole lines pay tribute to the icon. The luxurious multi-material upper rests on soft cushioning to keep you moving comfortably all day long.`,
     availableSizes:[{size:36, quantity:5},{size:38, quantity:1},{size:42, quantity:5}],
     url:"1/1/OZWEEGO SHOES Green",
     images: [
