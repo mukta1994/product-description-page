@@ -5,6 +5,7 @@ CICD proposal and PDP design are attached
 The stack used in this project
 1. Microservices using nodejs(expressjs framework)
 2. GraphQL as BFF 
+4. Authentication: API key by using passport js library
 3. Reactjs for front end
 
 This application is dockerized.
