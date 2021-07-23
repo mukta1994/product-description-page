@@ -11,6 +11,9 @@ import {
 
 const client = new ApolloClient({
   uri: 'http://localhost:5004/graphql',
+  headers: {
+          Authorization: `Bearer 123456789`
+        },
   cache: new InMemoryCache()
 });
 

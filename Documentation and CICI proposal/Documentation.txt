@@ -26,7 +26,6 @@ Product attribute combinations work properly.
 ————————————————————————————————————————————————————————————————————————————————————————————
 In this project 4 microservices are created using node js(express framework)
 
-Except for PDP service api key is needed for other three microservices.
 To test APIs, use this api key:-  headers :{ Authorization:"Bearer 123456789"}
 
 ————————————————————————————————————————————————————————————————————————————————————————————
