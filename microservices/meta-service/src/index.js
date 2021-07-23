@@ -3,7 +3,7 @@ const helmet = require("helmet");
 var passport = require('passport');
 var Strategy = require('passport-http-bearer').Strategy;
 
-var db = require('./db');
+var db = require('../../db');
 
 const app = express();
 app.use(helmet());

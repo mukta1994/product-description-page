@@ -4,7 +4,7 @@ const helmet = require("helmet");
 var passport = require('passport');
 var Strategy = require('passport-http-bearer').Strategy;
 
-var db = require('./src/db');
+var db = require('../../db');
 
 const app = express();
 app.use(helmet());
@@ -22,7 +22,7 @@ passport.use(new Strategy(
 
 module.exports = passport.authenticate('bearer', { session: false });
 
-var routes = require('./src/api/routes');
+var routes = require('./api/routes');
 
 routes(app);
 

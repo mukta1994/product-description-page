@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const {ProductService,UgcService,MetaService,authtoken} = require('../../config');
+const {ProductService,UgcService,MetaService,authtoken} = require('../../../config');
 
 
 const getProduct = async() => {
