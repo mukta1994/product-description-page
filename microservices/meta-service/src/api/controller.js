@@ -2,6 +2,7 @@
 
 const { metadata} = require('./data');
 
+//to get metadatas and metadata by id
 var controllers = {
   getMetadatas: async(req,res,next) => {
     if(!metadata){
@@ -10,7 +11,7 @@ var controllers = {
       }
      return await res.json(metadata)
   },
-  getMetadata: async (req, res, next) => {
+  getMetadataByProductId: async (req, res, next) => {
       if(!metadata){
         var err = new Error("Something went wrong");
         next(err)

@@ -2,6 +2,8 @@ import {
     gql
   } from "@apollo/client";
   
+
+//query to get product details
 export const Product = gql`
 query Product($id:Int!,$variantid:Int!, $title: String!){
   variant(id:$id,variantid:$variantid,title:$title){
@@ -40,6 +42,7 @@ query Product($id:Int!,$variantid:Int!, $title: String!){
 }
 `;
 
+//query to get ugc details
 export const ugc = gql`
 query ugcdata($id:Int!){
   ugc(id:$id){
@@ -57,7 +60,7 @@ query ugcdata($id:Int!){
 }
 `;
 
-
+//query to get metadata details
 export const Metadata = gql`
 query metadata($pid:Int!){
   metadata(pid:$pid) {

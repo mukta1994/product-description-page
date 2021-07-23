@@ -86,10 +86,6 @@
   max-height: 100%;
 }
 
-.info-section{
-  left:78%;
-}
-
 .star-container {
   padding-right:0px!important
 }
@@ -114,7 +110,7 @@
 }
 
 .info-section{
-  width:25%
+  width:40%
 }
 
 .ugc-block .user-images, .variant-images{
@@ -125,11 +121,11 @@
   width:75%
 }
 
-
-/* Landscape tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-
+.info-section {
+  padding:10px;
+  padding-left: 4em;
 }
+
 
 /* Portrait tablets and small desktops */
 @media (max-width: 991px) {
@@ -141,7 +137,11 @@
     width:100%
   }
   .info-section{
-    width:100%
+    width:100%;
+    padding-left: 0;
+  }
+  .reviews{
+    padding-top:6px;
   }
 
 }

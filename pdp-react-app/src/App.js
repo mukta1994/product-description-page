@@ -5,34 +5,22 @@ import ProductDesc from "./components/description/ProductDesc";
 import Ugc from "./components/ugc/Ugc";
 import Home from "./components/Home";
 import Meta from "./components/meta/Meta";
-
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 
 function App() {
 
-  // const Metadata = gql`
-  //   {
-  //     metadata(pid:1) {
-  //       pid
-  //       title
-  //       desc
-  //     }
-  //     }
-  // `;
   const title = "1/1/OZWEEGO SHOES Green"
-  // const { loading, error, data } = useQuery(Metadata);
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error :(</p>;
-  return <div>
 
-    {/* <Helmet>
-      <meta charSet="utf-8" />
-      <title>{data.metadata.title}</title>
-      <meta
-        name="description"
-        content={data.metadata.desc}
-      />
-    </Helmet> */}
+  return <div>
+<Navbar bg="dark" variant="dark">
+    <Container>
+    <Navbar.Brand href="/">Adidas</Navbar.Brand>
+    <Nav className="me-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+    </Nav>
+    </Container>
+  </Navbar>
   <Meta id={1}/>
     <Router>
       <Route exact path="/" >

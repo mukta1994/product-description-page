@@ -1,47 +1,32 @@
 Product Description Page Using react and microservices  and graphQL as BFF
 
+CICD proposal and PDP design are attached
+
+The stack used in this project
+1. Microservices using nodejs(expressjs framework)
+2. GraphQL as BFF 
+3. Reactjs for front end
+
 This application is dockerized.
 
+So in one command we can run our application
 Go to project root folder and run command “docker-compose up —build”
+
+1. Product-service runs on  “http://localhost:5001/“
+2. meta-service runs on  “http://localhost:5003/“
+3. ugc-service runs on  “http://localhost:5002/“
+4. PDP(GraphQL) runs on “http://localhost:5004/graghql“
+5. react app runs on "http://localhost:3000"
 
 Now your project runs on localhost:3000
 
 Here you can see an example product description which contains the product description with the product variants and reviews/comments. Also metadata is added using helmet from react.
-
-To test API authentication, project should be run locally.
-To make all services run locally and in a single command add the below scripts object to pcckage.json(go to folder “pdp-react-app”  add the following script to package.json)
- "scripts": {
-    "start-client": "react-scripts start",
-    "build": "react-scripts build && (cd ../microservices && npm install )",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start": "concurrently \"react-scripts start\"  \"cd ../microservices && npm run start:product\" \"cd ../microservices && npm run start:pdp\" \"cd ../microservices && npm run start:ugc\" \"cd ../microservices && npm run start:meta\""
-  },
-
-Run commands:
-
-npm run build
-npm run start
-
-This runs all our services concurrently.
-Product-service runs on  “http://localhost:5001/“
-meta-service runs on  “http://localhost:5003/“
-ugc-service runs on  “http://localhost:5002/“
-GraphQL server runs on “http://localhost:5004/graghql“
-react app runs on "http://localhost:3000"
-
-Note: if you running application using docker then scripts object should be replaced with
-"scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build,
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-
+Product attribute combinations work properly.
 
 ————————————————————————————————————————————————————————————————————————————————————————————
 In this project 4 microservices are created using node js(express framework)
 
+Except for PDP service api key is needed for other three microservices.
 To test APIs, use this api key:-  headers :{ Authorization:"Bearer 123456789"}
 
 ————————————————————————————————————————————————————————————————————————————————————————————
@@ -51,7 +36,7 @@ API’s:
 API to get the product
 http://localhost:5001/product
 
-API to get the product variant using product id and variant id
+API to get the product variant using product id and variant id(ex:http://localhost:5001/product/1/1/OZWEEGO SHOES Green)
 http://localhost:5001/product/:productid/:variantid/:title
 
 
@@ -99,7 +84,10 @@ ugc(id: Int): UgcContent
 ————————————————————————————————————————————————————————————————————————————————————————————————————
 
 In Front end react is used with functional components approach and GraphQL with appollo server is used as BFF
-
+React app components contains 3 main components
+1. Description component
+2. Meta component --which uses helmet (react)
+3. Ugc component
 —————————————————————————————————————————————————————————————————————————————————————————————————————
 
 Improvements:

@@ -27,11 +27,11 @@ const Ugc = () => {
 
     //by using product id get reviews and ratings of a respective product
     const { loading, error, data } = useQuery(ugc, { variables: { id: parseInt(productid) } });
-if(error){
-    console.log(error)
-}
+    if (error) {
+        console.log(error)
+    }
     if (loading) return <p>Loading...</p>;
-    if (error) return <p style={{textAlign:"center"}}>Failed fetch data</p>;
+    if (error) return <p style={{ textAlign: "center" }}>Failed fetch data</p>;
     return (<div className="container ugc-block pt-4">
         <div className="pt-4"><h3>Images by buyers</h3></div>
         <div className="d-flex flex-row user-images ">
@@ -42,11 +42,11 @@ if(error){
         <div className="pt-4"><h3>Reviews and Ratings</h3></div>
         <div className="d-flex review-container">
             <div className="review-section">
-                <Rating averageRating={data.ugc.averageRating}/>
+                <Rating averageRating={data.ugc.averageRating} />
             </div>
 
-            <div>
-            <Reviews reviews={data.ugc.reviews}/>     
+            <div className="reviews">
+                <Reviews reviews={data.ugc.reviews} />
             </div>
         </div>
 

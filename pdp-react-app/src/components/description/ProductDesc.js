@@ -1,12 +1,13 @@
 import {
   useQuery
 } from "@apollo/client";
-import Features from './Features'
-import SlideShow from './SlideShow'
-//import { useState, useEffect } from 'react'
-import { Product } from '../../query/query'
 import { useLocation } from "react-router-dom";
 import { matchPath } from 'react-router'
+
+//import components
+import Features from './Features'
+import SlideShow from './SlideShow'
+import { Product } from '../../query/query'
 
 
 const ProductDesc = () => {
@@ -26,14 +27,14 @@ const ProductDesc = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{textAlign:"center"}}>Failed fetch data</p>;
-  return (<div className="container pt-4">
+  return (<div className="container">
     {data &&
       <>
         <div className="description-container">
           <div className="slide-section">
             <SlideShow showimgs={data.variant.images} />
           </div>
-          <div className="p-2 float-left info-section">
+          <div className=" float-left info-section">
             <h3>{data.product.name}</h3>
             <h6>{data.variant.product.title}</h6>
             <h5 className="pb-2 pt-1">${data.variant.product.price}</h5>

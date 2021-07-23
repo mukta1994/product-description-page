@@ -1,13 +1,12 @@
 import { useHistory } from 'react-router-dom';
 
 const Home = (props) => {
-    console.log(props.title)
     const history = useHistory();
     const getProduct = () => {
         history.push(`/product/${props.title}`);
     }
-    return (<div>
-        <div onClick={() => getProduct()}>go to product</div>
+    return (<div className="container pt-4">
+        <button className="button button-primary" onClick={() => getProduct()}>go to product</button>
     </div>
     )
 }

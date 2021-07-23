@@ -7,5 +7,5 @@ module.exports = function (app) {
     app.route('/metadatas')
     .get(requireAuthentication,controller.getMetadatas);
    app.route('/metadata/:productid')
-      .get(requireAuthentication,controller.getMetadata);
+      .get(requireAuthentication,controller.getMetadataByProductId);
 };

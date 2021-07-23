@@ -1,6 +1,6 @@
 import StarRatings from 'react-star-ratings';
 
-const Reviews =(props)=>{
+const Reviews = (props) => {
     const reviews = props.reviews
 
     return <>{reviews && reviews.map((item, i) => (
