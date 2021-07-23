@@ -92,7 +92,7 @@ React app components contains 3 main components
 
 Improvements:
 Front-end :We can improve design slightly. Kept it simple for now. 
-Backend: Refactoring of code needed in some places like creating auth service separately.
+Backend: Refactoring of code needed in some places like error handling.
 Tests:Tests cases can be included in future.
 
 

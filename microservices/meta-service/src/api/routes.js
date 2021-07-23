@@ -1,7 +1,7 @@
 'use strict';
 
 var controller = require('./controller');
-var requireAuthentication = require('../../src/index');
+var requireAuthentication = require('../../../passport/passport');
 
 module.exports = function (app) {
     app.route('/metadatas')

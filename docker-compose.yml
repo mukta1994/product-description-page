@@ -8,8 +8,6 @@ services:
       PORT: 5001
     ports:
       - 5001:5001
-    volumes: 
-      - ./microservices:/opt/app
 
   meta-service:
     build: "./microservices"
@@ -18,8 +16,7 @@ services:
       PORT: 5003
     ports:
       - 5003:5003
-    volumes: 
-      - ./microservices:/opt/app
+    
 
   user-content-service:
     build: "./microservices"
@@ -41,8 +38,7 @@ services:
       UGC_HOST: http://user-content-service:5002
     ports:
       - 5004:5004
-    volumes: 
-      - ./microservices:/opt/app
+    
   
   react-app:
     build: "./pdp-react-app"
@@ -50,8 +46,7 @@ services:
       PORT: 3000
     ports:
       - 3000:3000
-    volumes: 
-      - ./pdp-react-app:/opt/app
+    
 
 
   
